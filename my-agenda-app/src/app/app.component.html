@@ -8,7 +8,7 @@
 
             <div class="icons">
                 <button id="checkUsers"></button>
-                <button id="deleteAll"></button>
+                <button (click)="deteleContacs()" id="deleteAll"></button>
 
             </div>
             
@@ -51,6 +51,7 @@
                         <div class="circulo"></div>
                     </div>
 
+                    
                     <div class="contact-header-text">
                         <span> {{item.nombre}} </span>
                         <span> {{item.email}} </span>
@@ -59,7 +60,10 @@
                 </div>
 
                 <div class="contact-footer">
-                    <button (click)="addContact()"> Crear</button>
+                    <button id="editIcon"> </button> 
+                    <!-- (click)="addContact()" -->
+                    <button id="checkIcon"> </button>
+                    <button id="deleteIcon" > </button>
                 </div>
 
 

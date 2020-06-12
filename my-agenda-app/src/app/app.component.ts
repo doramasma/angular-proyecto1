@@ -15,12 +15,18 @@ export class AppComponent {
     this.contactContainer.push( {
       nombre : this.nombre,
       email : this.email,
-      telefono : this.telefono
+      telefono : this.telefono,
+      contactado : false
 
     })
-    
+
     console.log(this.contactContainer)
 
 
+  }
+
+
+  deteleContacs(){
+    this.contactContainer = [];
   }
 }
