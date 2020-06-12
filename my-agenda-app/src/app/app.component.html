@@ -24,14 +24,17 @@
                             </div>
 
                             <div class="contact-header-text">
-                                <input type="text" placeholder="Nombre..." [(ngModel)]="nombre">
-                                <input type="email" placeholder="Email..." [(ngModel)]="email">
-                                <input type="tel" placeholder="Teléfono..." [(ngModel)]="telefono">
+                                <input type="text" placeholder="Nombre..." [(ngModel)]="nombre" (blur)="onBlur()" >
+                                <input type="email" placeholder="Email..." [(ngModel)]="email" (blur)="onBlur()">
+                                <input type="tel" placeholder="Teléfono..." [(ngModel)]="telefono" (blur)="onBlur()">
+                                <span *ngIf="error">{{validacionNombre}}</span>
+                                <span *ngIf="error">{{validacionEmail}}</span>
+                                <span *ngIf="error">{{validacionTelefono}}</span>
                             </div>
                         </div>
 
                 <div class="contact-footer">
-                    <button (click)="addContact()"> Crear</button>
+                    <button (click)="addContact()" > Crear</button>
                 </div>
 
 
