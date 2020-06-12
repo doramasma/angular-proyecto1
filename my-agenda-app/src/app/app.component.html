@@ -43,7 +43,7 @@
         <div class="contactos">
 
             <div 
-            *ngFor="let tarea of contactContainer" 
+            *ngFor="let item of contactContainer" 
             class="contact">
 
                 <div  class="contact-header">
@@ -52,7 +52,9 @@
                     </div>
 
                     <div class="contact-header-text">
-                        <span> </span>
+                        <span> {{item.nombre}} </span>
+                        <span> {{item.email}} </span>
+                        <span> {{item.telefono}} </span>
                     </div>
                 </div>
 
