@@ -27,13 +27,17 @@
                                 <input type="text" placeholder="Nombre..." [(ngModel)]="nombre" (blur)="onBlur()" >
                                 <input type="email" placeholder="Email..." [(ngModel)]="email" (blur)="onBlur()">
                                 <input type="tel" placeholder="Teléfono..." [(ngModel)]="telefono" (blur)="onBlur()">
-                                <span *ngIf="error">{{validacionNombre}}</span>
-                                <span *ngIf="error">{{validacionEmail}}</span>
-                                <span *ngIf="error">{{validacionTelefono}}</span>
+                                
                             </div>
                         </div>
 
                 <div class="contact-footer">
+                    <div class="prueba">
+                        <span *ngIf="error">{{validacionNombre}}</span>
+                        <span *ngIf="error">{{validacionEmail}}</span>
+                        <span *ngIf="error">{{validacionTelefono}}</span>
+
+                    </div>
                     <button (click)="addContact()" > Crear</button>
                 </div>
 
@@ -46,8 +50,8 @@
         <div class="contactos">
 
             <div 
-            *ngFor="let item of contactContainer" 
-            class="contact">
+            *ngFor="let item of contactContainer; index as i" 
+            class="contact-contactos">
 
                 <div  class="contact-header">
                     <div class="contact-header-picture centered">
@@ -56,17 +60,17 @@
 
                     
                     <div class="contact-header-text">
-                        <span> {{item.nombre}} </span>
+                        <span id="bold"> {{item.nombre}} </span>
                         <span> {{item.email}} </span>
                         <span> {{item.telefono}} </span>
                     </div>
                 </div>
 
-                <div class="contact-footer">
+                <div class="contactos-footer">
                     <button id="editIcon"> </button> 
                     <!-- (click)="addContact()" -->
                     <button id="checkIcon"> </button>
-                    <button id="deleteIcon" > </button>
+                    <button (click)="deletePerson(i)" id="deleteIcon" > </button>
                 </div>
 
 

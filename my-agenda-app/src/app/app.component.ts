@@ -10,6 +10,7 @@ export class AppComponent {
   nombre : string;
   email : string;
   telefono : string;
+  ////
   error: boolean = false;
   re =new RegExp("/^([0-9])*$/");
   validacionNombre: string = "";
@@ -26,10 +27,6 @@ export class AppComponent {
       contactado : false
 
     })
-
-    console.log(this.contactContainer)
-
-
   }
 
   onBlur(){
@@ -48,16 +45,18 @@ export class AppComponent {
     if (this.contactContainer.length> 0){ 
       
       var result = this.contactContainer.filter(contact => contact.email === this.email)
-
-      
       console.log(result)
     }
   }
 
-
-
-
+  //Metedo para borrar todos los contactos (boton papelera)
   deteleContacs(){
     this.contactContainer = [];
   }
+  //Metedo para borrar una tarjeta (boton menos)
+  deletePerson(person : number){
+    this.contactContainer.splice(person,1);
+  }
+
+
 }
