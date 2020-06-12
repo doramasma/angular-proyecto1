@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-agenda-app';
+  contactContainer = [];
+  nombre : string;
+  email : string;
+  telefono : number;
+
+  addContact(){
+    this.contactContainer.push( {
+      nombre : this.nombre,
+      email : this.email,
+      telefono : this.telefono
+
+    })
+    
+    console.log(this.contactContainer)
+
+
+  }
 }
