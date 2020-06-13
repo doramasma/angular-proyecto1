@@ -39,10 +39,11 @@
     padding-left: 70px;
     border-radius: 73px;
     /* text-align: center; */
+
     font-size: 18px;
     background: url(../assets/search.png) no-repeat;
     background-position: 30px 21px;
-    border: 1px solid black;  
+    border: 1px solid black;
 }
 
 .icons{

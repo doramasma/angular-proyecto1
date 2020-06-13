@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ɵELEMENT_PROBE_PROVIDERS } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,13 @@ export class AppComponent {
   validacionEmail: string = "";
   validacionTelefono: string = "";
   result: any;
-  
+
+buscador(algo){
+ return this.contactContainer.filter( elemento => elemento.nombre.includes(algo) 
+ || elemento.email.includes(algo));
+
+}
+
   addContact(){
     this.contactContainer.push( {
       nombre : this.nombre,
