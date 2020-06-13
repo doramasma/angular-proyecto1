@@ -8,7 +8,7 @@
 
             <div class="icons">
                 <button id="checkUsers"></button>
-                <button (click)="deteleContacs()" id="deleteAll"></button>
+                <button (click)="deteleContacts()" id="deleteAll"></button>
 
             </div>
             
@@ -24,16 +24,16 @@
                             </div>
 
                             <div class="contact-header-text">
-                                <input type="text" placeholder="Nombre..." [(ngModel)]="nombre" (blur)="onBlur()" >
-                                <input type="email" placeholder="Email..." [(ngModel)]="email" (blur)="onBlur()">
-                                <input type="tel" placeholder="Teléfono..." [(ngModel)]="telefono" (blur)="onBlur()">
+                                <input type="text" placeholder="Nombre..." [(ngModel)]="nombre" (blur)="onBlur()" (focus)="onFocus()" >
+                                <input type="email" placeholder="Email..." [(ngModel)]="email" (blur)="onBlur()"(focus)="onFocus()">
+                                <input type="tel" placeholder="Teléfono..." [(ngModel)]="telefono" (blur)="onBlur()"(focus)="onFocus()">
                                 <span *ngIf="error">{{validacionNombre}}</span>
                                 <span *ngIf="error">{{validacionEmail}}</span>
                                 <span *ngIf="error">{{validacionTelefono}}</span>
                             </div>
                         </div>
 
-                <div class="contact-footer">
+                <div ngHide="error" class="contact-footer">
                     <button (click)="addContact()" > Crear</button>
                 </div>
 
