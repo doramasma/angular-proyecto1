@@ -17,7 +17,6 @@ export class AppComponent {
   validacionTelefono: string = "";
   result: any;
   
-
   addContact(){
     this.contactContainer.push( {
       nombre : this.nombre,
