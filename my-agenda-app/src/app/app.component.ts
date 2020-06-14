@@ -50,7 +50,7 @@ export class AppComponent {
   }
 
   //Metedo para borrar todos los contactos (boton papelera)
-  deteleContacs(){
+  deteleContacts(){
     this.contactContainer = [];
   }
   //Metedo para borrar una tarjeta (boton menos)
