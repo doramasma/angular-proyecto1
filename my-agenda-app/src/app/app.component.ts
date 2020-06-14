@@ -8,11 +8,11 @@ import { ɵELEMENT_PROBE_PROVIDERS } from '@angular/platform-browser';
 })
 export class AppComponent {
   contactContainer = [];
-  nombre : string;
-  email : string;
-  telefono : string;
+  nombre : string="";
+  email : string ="";
+  telefono : string="";
   error: boolean = false;
-  re =new RegExp("/^([0-9])*$/");
+  re =new RegExp("^[0-9]{9}$");
   validacionNombre: string = "";
   validacionEmail: string = "";
   validacionTelefono: string = "";
@@ -32,16 +32,20 @@ buscador(persona){
   }
 }
 
+
   addContact(){
-    this.contactContainer.push( {
-      nombre : this.nombre,
-      email : this.email,
-      telefono : this.telefono,
-      contactado : false
-
-    })
-
-    console.log(this.contactContainer)
+    if(!this.error){
+      this.contactContainer.push( {
+        nombre : this.nombre,
+        email : this.email,
+        telefono : this.telefono,
+        contactado : false  
+      })
+    this.nombre ="";
+    this.email  ="";
+    this.telefono ="";
+    }
+    
   }
 
   onBlur(){
@@ -50,26 +54,43 @@ buscador(persona){
       this.validacionNombre = "Nombre proporcionado muy corto";
     }
     if (!this.email.includes("@")) {
-      this.error =  true;
-      this.validacionEmail = "El email es incorrecto";
-    }
-    if (!this.telefono.match(this.re) && this.telefono.length >= 9 ){
       this.error = true;
-      this.validacionTelefono = "El telefono es incorrecto";
+      this.validacionEmail = "El email introducido es incorrecto";
     }
-    if (this.contactContainer.length> 0){ 
-      
-      var result = this.contactContainer.filter(contact => contact.email === this.email)
-
-      
-      console.log(result)
+    if (!this.re.test(this.telefono) ){
+      this.error = true;
+      this.validacionTelefono = "El telefono debe tener 9 caracteres";
+    }
+    var emailRepe = this.contactContainer.some(contact => contact.email === this.email);
+    if(emailRepe){
+      this.error = true;
+      this.validacionEmail ="El email ya se encuentra registrado";
     }
   }
+  onFocus(){
+    this.error = false;
+    this.validacionNombre = "";
+    this.validacionTelefono = "";
+    this.validacionEmail ="";
 
-
-
-
-  deteleContacs(){
+  }
+  
+  //Metedo para borrar todos los contactos (boton papelera)
+  deteleContacts(){
     this.contactContainer = [];
   }
+  //Metedo para borrar una tarjeta (boton menos)
+  deletePerson(person : number){
+    this.contactContainer.splice(person,1);
+  }
+
+  contacted(i) {
+    i.contactado = !i.contactado;
+    console.log(i.contactado );
+  }
+
+  contactAll() {
+    this.contactContainer.forEach( user => user.contactado = !user.contactado);
+  }
+
 }
