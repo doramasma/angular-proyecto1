@@ -8,7 +8,7 @@
             </div>
 
             <div class="icons">
-                <button id="checkUsers"></button>
+                <button (click)="contactAll()" id="checkUsers"></button>
                 <button (click)="deteleContacts()" id="deleteAll"></button>
 
             </div>
@@ -69,7 +69,7 @@
                 <div class="contactos-footer">
                     <button id="editIcon"> </button> 
                     <!-- (click)="addContact()" -->
-                    <button id="checkIcon"> </button>
+                    <button [ngClass]="{'green' : item.contactado}" (click)=(contacted(item)) id="checkIcon"> </button>
                     <button (click)="deletePerson(i)" id="deleteIcon" > </button>
                 </div>
 
