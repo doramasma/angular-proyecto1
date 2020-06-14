@@ -17,11 +17,19 @@ export class AppComponent {
   validacionEmail: string = "";
   validacionTelefono: string = "";
   result: any;
+  persona: string;
 
-buscador(algo){
- return this.contactContainer.filter( elemento => elemento.nombre.includes(algo) 
- || elemento.email.includes(algo));
 
+
+  original = this.contactContainer;
+buscador(persona){
+  if(persona.length > 0){
+    this.contactContainer = this.contactContainer.filter( elemento => elemento.nombre.includes(persona) 
+ || elemento.email.includes(persona));
+  }
+  if(persona.length == 0){
+    this.contactContainer = this.original;
+  }
 }
 
   addContact(){
@@ -34,8 +42,6 @@ buscador(algo){
     })
 
     console.log(this.contactContainer)
-
-
   }
 
   onBlur(){
