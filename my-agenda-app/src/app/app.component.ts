@@ -53,8 +53,15 @@ export class AppComponent {
     this.validacionEmail ="";
 
   }
-
+  
+  //Metedo para borrar todos los contactos (boton papelera)
   deteleContacts(){
     this.contactContainer = [];
   }
+  //Metedo para borrar una tarjeta (boton menos)
+  deletePerson(person : number){
+    this.contactContainer.splice(person,1);
+  }
+
+
 }
