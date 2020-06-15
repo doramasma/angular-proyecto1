@@ -17,6 +17,7 @@ export class AppComponent {
   validacionEmail: string = "";
   validacionTelefono: string = "";
   result: any;
+  hideContactados: boolean = false;
   
 
   addContact(){
@@ -58,5 +59,22 @@ export class AppComponent {
     this.contactContainer.splice(person,1);
   }
 
+  contactedPerson(person: string) {
+    this.contactContainer.forEach(item => {
+      if (item.nombre == person) {
+        item.contactado = true;
+      }
+    })
+    console.log(this.contactContainer);
+  }
+
+  nocontactedPerson(person: string) {
+    this.contactContainer.forEach(item => {
+      if (item.nombre == person) {
+        item.contactado = false;
+      }
+    })
+    console.log(this.contactContainer);
+  }
 
 }

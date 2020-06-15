@@ -133,6 +133,15 @@
     
 }
 
+.contact-header-text2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 2;
+    border-radius: 0 16px 0 0;
+    color: blue;
+}
+
 .contact-header-text > input {
     height: 22px;
     width: 184px;
@@ -191,6 +200,10 @@
 
 }
 
+.hidden{
+    display: none !important;
+}
+
 .contact-contactos {
     display: flex;
     flex-direction: column;
@@ -202,6 +215,10 @@
     margin-top: 20px;
     border: 1px solid black;
 }
+
+[hidden] {
+    display: inline-block !important;
+  }
 
 .contactos-footer{
     display: flex;

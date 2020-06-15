@@ -7,7 +7,9 @@
             </div>
 
             <div class="icons">
-                <button id="checkUsers"></button>
+                <button id="checkUsers" *ngIf="!hideContactados" (click)="hideContactados = true"></button>
+                <button id="checkUsers" *ngIf="hideContactados" (click)="hideContactados = false"></button>
+
                 <button (click)="deteleContacts()" id="deleteAll"></button>
 
             </div>
@@ -51,7 +53,7 @@
 
             <div 
             *ngFor="let item of contactContainer; index as i" 
-            class="contact-contactos">
+            class="contact-contactos" [class.hidden]="hideContactados && item.contactado">
 
                 <div  class="contact-header">
                     <div class="contact-header-picture centered">
@@ -59,7 +61,7 @@
                     </div>
 
                     
-                    <div class="contact-header-text">
+                    <div [class.contact-header-text]="!item.contactado" [class.contact-header-text2]="item.contactado">
                         <span id="bold"> {{item.nombre}} </span>
                         <span> {{item.email}} </span>
                         <span> {{item.telefono}} </span>
@@ -69,19 +71,12 @@
                 <div class="contactos-footer">
                     <button id="editIcon"> </button> 
                     <!-- (click)="addContact()" -->
-                    <button id="checkIcon"> </button>
+                    <button *ngIf="!item.contactado" (click)="contactedPerson(item.nombre)" id="checkIcon"> </button>
+                    <button *ngIf="item.contactado" (click)="nocontactedPerson(item.nombre)" id="checkIcon"> </button>
                     <button (click)="deletePerson(i)" id="deleteIcon" > </button>
                 </div>
-
-
-    </div>
-           
-            
+            </div>   
         </div>
 
 
-
-    
-
-    
 </div>
